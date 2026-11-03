@@ -1,203 +1,218 @@
-
-:host { display: block; }
-
-.module-card {
-  background: white;
-  border: 1px solid #e8edf5;
-  border-radius: 18px;
-  padding: 28px;
+/* --- होस्ट कंटेनर डिझाईन --- */
+:host {
+  display: block;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
 }
 
+h1, h2, h3, h4 {
+  color: #0f172a;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* --- प्रीमियम मुख्य कार्ड्स --- */
+.module-card,
+.goal-card,
+.form-card,
+.card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 26px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 10px 15px -3px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.module-card:hover, .goal-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px -3px rgba(15, 23, 42, 0.06), 0 4px 6px -2px rgba(15, 23, 42, 0.03);
+}
+
+/* --- हेडर आणि बॅजेस --- */
 .module-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
 }
 
 .module-header h2 {
   margin: 0;
-  font-size: 21px;
-  color: #172554;
+  font-size: 22px;
 }
 
 .module-header p {
-  margin: 8px 0 0;
+  margin: 6px 0 0;
   font-size: 13px;
-  color: #94a3b8;
+  color: #64748b;
+  font-weight: 500;
 }
 
 .module-badge {
-  background: #eff6ff;
-  color: #2563eb;
-  padding: 8px 12px;
-  border-radius: 20px;
-  font-size: 10px;
-  font-weight: 800;
+  background: #e0e7ff;
+  color: #4f46e5;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
+/* --- फॉर्म सेक्शन आणि इनपुट्स --- */
 .form-section h3,
 .goals-list h3 {
   font-size: 15px;
-  margin-bottom: 18px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 16px;
 }
 
 .form-grid {
   display: grid;
   grid-template-columns: 2fr 1fr auto;
-  gap: 12px;
+  gap: 14px;
+  align-items: end;
 }
 
 input {
   width: 100%;
   min-width: 0;
-  padding: 12px;
-  border: 1px solid #dbe3ef;
-  border-radius: 9px;
+  padding: 12px 14px;
+  margin: 6px 0 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #0f172a;
   outline: none;
-  font-size: 12px;
+  font-size: 13px;
+  transition: all 0.2s ease;
 }
 
-input:focus { border-color: #2563eb; }
+input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
 
+/* --- प्रायमरी बटन्स (Stripe-Style) --- */
 button {
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
-  color: white;
+  background: #4f46e5;
+  color: #ffffff;
   border: none;
-  border-radius: 9px;
-  padding: 11px 16px;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.goals-list { margin-top: 30px; }
+button:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
 
-.goal-card {
-  padding: 22px;
-  border: 1px solid #e8edf5;
-  border-radius: 15px;
-  margin-bottom: 15px;
-  background: #fcfdff;
+button:active {
+  transform: translateY(0);
+}
+
+/* --- ध्येय सूची (Goals List Layout) --- */
+.goals-list {
+  margin-top: 32px;
 }
 
 .goal-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .goal-header h4 {
   margin: 0;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0f172a;
 }
 
 .goal-header p {
-  color: #94a3b8;
-  font-size: 12px;
-  margin: 7px 0;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 6px 0 0;
 }
 
 .goal-header strong {
-  color: #2563eb;
-  font-size: 20px;
+  color: #4f46e5;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
-.progress-track {
-  height: 9px;
+/* --- ग्लोइंग प्रोग्रेस बार डिझाईन --- */
+.progress-track,
+.progress-bar {
+  width: 100%;
+  height: 10px;
   border-radius: 20px;
-  background: #eaf0ff;
-  margin: 18px 0;
+  background: #f1f5f9;
+  margin: 20px 0;
   overflow: hidden;
+  position: relative;
 }
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #2563eb, #818cf8);
+  background: linear-gradient(90deg, #4f46e5, #0ea5e9);
   border-radius: 20px;
-  transition: width 0.3s;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px rgba(79, 70, 229, 0.3); /* हलका ग्लोइंग इफेक्ट */
 }
 
 .goal-details {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
   color: #64748b;
-  font-size: 12px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
+/* --- ॲक्शन्स आणि डिलीट बटन्स --- */
 .goal-actions {
   display: flex;
   gap: 10px;
-  margin-top: 18px;
-}
-
-.delete-btn {
-  background: #fff1f2;
-  color: #e11d48;
-}
-
-@media(max-width: 700px) {
-  .module-card { padding: 17px; }
-  .form-grid { grid-template-columns: 1fr; }
-  .goal-details { flex-direction: column; }
-}
-
-:host {
-  display: block;
-  color: #172554;
-}
-
-h1, h2, h3 {
-  color: #172554;
-}
-
-.goal-card,
-.form-card,
-.card {
-  background: #ffffff;
-  border: 1px solid #e8eaf5;
-  border-radius: 18px;
-  padding: 24px;
-  margin-bottom: 22px;
-  box-shadow: 0 5px 20px rgba(79, 70, 229, 0.04);
-}
-
-input {
-  width: 100%;
-  padding: 13px 15px;
-  margin: 7px 0 15px;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  background: #fbfcff;
-}
-
-button {
-  padding: 12px 18px;
-  background: #4f46e5;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 10px;
-  background: #e0e7ff;
-  border-radius: 20px;
-  overflow: hidden;
-  margin: 15px 0;
-}
-
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #6366f1, #a78bfa);
-  border-radius: 20px;
-  transition: width 0.4s ease;
+  margin-top: 20px;
 }
 
 button.delete-btn,
 button.danger {
+  background: #fef2f2;
+  color: #ef4444;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+button.delete-btn:hover,
+button.danger:hover {
   background: #fee2e2;
   color: #dc2626;
+  box-shadow: none;
+  transform: none;
+}
+
+/* --- रिस्पॉन्सिव्ह मीडिया क्वेरीज --- */
+@media(max-width: 700px) {
+  .module-card, .goal-card, .form-card { padding: 20px; }
+  .form-grid { grid-template-columns: 1fr; gap: 12px; }
+  .goal-details { flex-direction: column; gap: 6px; }
+  .goal-header { flex-direction: column; gap: 10px; }
+  .goal-header strong { align-self: flex-start; }
 }

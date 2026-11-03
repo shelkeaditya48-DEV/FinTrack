@@ -1,3 +1,28 @@
+/* --- डिफ़ॉल्ट लाइट थीम (Light Theme) --- */
+:root {
+  --bg: #f8fafc;
+  --sidebar-bg: #ffffff;
+  --card: #ffffff;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-light: rgba(79, 70, 229, 0.1);
+}
+
+/* --- डार्क थीम (Dark Theme) - जब body पर 'dark-theme' क्लास होगी --- */
+body.dark-theme {
+  --bg: #0f172a;          /* डार्क बैकग्राउंड */
+  --sidebar-bg: #1e293b;  /* डार्क साइडबार */
+  --card: #1e293b;        /* डार्क कार्ड्स */
+  --text: #f8fafc;        /* वाइट टेक्स्ट */
+  --text-muted: #94a3b8;
+  --border: #334155;      /* डार्क बॉर्डर्स */
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --primary-light: rgba(99, 102, 241, 0.15);
+}
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 /* --- प्रोफेशनल फिनटेक कलर पॅलेट आणि व्हेरिएबल्स --- */

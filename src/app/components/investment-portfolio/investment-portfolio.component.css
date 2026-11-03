@@ -1,215 +1,262 @@
-
-:host { display: block; }
-
-.module-card {
-  background: white;
-  border: 1px solid #e8edf5;
-  border-radius: 18px;
-  padding: 28px;
-  box-shadow: 0 5px 25px #17255405;
-}
-
-.module-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-}
-
-.module-header h2 {
-  margin: 0;
-  font-size: 21px;
-  color: #172554;
-}
-
-.module-header p {
-  margin: 8px 0 0;
-  font-size: 13px;
-  color: #94a3b8;
-}
-
-.module-badge {
-  background: #eff6ff;
-  color: #2563eb;
-  padding: 8px 12px;
-  border-radius: 20px;
-  font-size: 10px;
-  font-weight: 800;
-}
-
-.total-card {
-  padding: 25px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
-  color: white;
-  margin-bottom: 30px;
-}
-
-.total-card span {
-  font-size: 13px;
-  opacity: 0.8;
-}
-
-.total-card h1 {
-  font-size: 32px;
-  margin: 12px 0;
-}
-
-.total-card p {
-  font-size: 12px;
-  opacity: 0.75;
-  margin: 0;
-}
-
-.form-section h3,
-.table-section h3 {
-  font-size: 15px;
-  margin-bottom: 18px;
-}
-
-.form-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr auto;
-  gap: 12px;
-}
-
-input, select {
-  width: 100%;
-  min-width: 0;
-  padding: 12px;
-  border: 1px solid #dbe3ef;
-  border-radius: 9px;
-  outline: none;
-  font-size: 12px;
-}
-
-input:focus, select:focus {
-  border-color: #2563eb;
-}
-
-button {
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
-  color: white;
-  border: none;
-  border-radius: 9px;
-  padding: 12px 16px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.table-section { margin-top: 30px; }
-.table-wrapper { overflow-x: auto; }
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-}
-
-th {
-  text-align: left;
-  color: #94a3b8;
-  font-size: 11px;
-  background: #f8faff;
-  padding: 14px;
-}
-
-td {
-  padding: 15px 14px;
-  border-bottom: 1px solid #edf0f5;
-}
-
-.type-tag {
-  background: #f1f5ff;
-  color: #2563eb;
-  padding: 5px 9px;
-  border-radius: 7px;
-  font-size: 11px;
-}
-
-.amount { font-weight: 700; }
-
-.delete-btn {
-  background: #fff1f2;
-  color: #e11d48;
-  padding: 8px 12px;
-}
-
-.delete-btn:hover { background: #ffe4e6; }
-
-@media(max-width: 900px) {
-  .form-grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media(max-width: 500px) {
-  .module-card { padding: 17px; }
-  .form-grid { grid-template-columns: 1fr; }
-}
-
+/* --- होस्ट कंटेनर डिझाईन --- */
 :host {
   display: block;
-  color: #172554;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
 }
 
 h1, h2, h3 {
-  color: #172554;
+  color: #0f172a;
   font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
+/* --- प्रीमियम मुख्य कार्ड्स डिझाईन --- */
+.module-card,
 .investment-card,
 .form-card,
 .table-card,
 .card {
   background: #ffffff;
-  border: 1px solid #e8eaf5;
-  border-radius: 18px;
-  padding: 24px;
-  margin-bottom: 22px;
-  box-shadow: 0 5px 20px rgba(79, 70, 229, 0.04);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 26px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 10px 15px -3px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.module-card:hover, .investment-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px -3px rgba(15, 23, 42, 0.06), 0 4px 6px -2px rgba(15, 23, 42, 0.03);
+}
+
+/* --- हेडर आणि बॅजेस --- */
+.module-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.module-header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.module-header p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.module-badge {
+  background: #e0e7ff;
+  color: #4f46e5;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* --- अल्ट्रा-प्रीमियम टोटल इनव्हेस्टमेंट कार्ड --- */
+.total-card {
+  padding: 28px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+  color: #ffffff;
+  margin-bottom: 32px;
+  box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* कार्डवर प्रीमियम फिनटेक लुकसाठी हलका बॅकग्राउंड इफेक्ट */
+.total-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.total-card span {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+}
+
+.total-card h1 {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 10px 0;
+  color: #ffffff;
+}
+
+.total-card p {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* --- फॉर्म सेक्शन आणि इनपुट्स --- */
+.form-section h3,
+.table-section h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 16px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr auto;
+  gap: 14px;
+  align-items: end;
 }
 
 input, select {
   width: 100%;
-  padding: 13px 15px;
-  margin: 7px 0 15px;
-  border: 1px solid #e2e8f0;
+  min-width: 0;
+  padding: 12px 14px;
+  margin: 6px 0 0;
+  border: 1px solid #cbd5e1;
   border-radius: 10px;
-  background: #fbfcff;
+  background: #ffffff;
+  color: #0f172a;
+  outline: none;
+  font-size: 13px;
+  transition: all 0.2s ease;
 }
 
+input:focus, select:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+/* --- मॉडर्न बटन्स (Stripe-Style) --- */
 button {
-  padding: 12px 18px;
-  background: linear-gradient(135deg, #4f46e5, #6366f1);
-  color: white;
+  background: #4f46e5;
+  color: #ffffff;
   border: none;
   border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 13px;
   font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button:hover {
-  box-shadow: 0 6px 15px #4f46e533;
+  background: #4338ca;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* --- टेबल डिझाईन (Investment Assets List) --- */
+.table-section {
+  margin-top: 32px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
+  font-size: 13px;
+  background: #ffffff;
 }
 
 th {
-  background: #eef2ff;
-  color: #4f46e5;
-  padding: 15px;
   text-align: left;
+  color: #4f46e5;
+  font-size: 12px;
+  font-weight: 600;
+  background: #f1f5f9;
+  padding: 16px;
+  border-bottom: 1px solid #e2e8f0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 td {
-  padding: 15px;
-  border-bottom: 1px solid #eef2f7;
+  padding: 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
 }
 
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: #f8fafc;
+}
+
+/* इनव्हेस्टमेंट टाईप टॅग (उदा. Mutual Funds, Crypto, Stocks) */
+.type-tag {
+  background: #e0e7ff;
+  color: #4f46e5;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.amount {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* --- डेंजर / डिलीट बटन्स --- */
 button.delete-btn,
 button.danger {
+  background: #fef2f2;
+  color: #ef4444;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+button.delete-btn:hover,
+button.danger:hover {
   background: #fee2e2;
   color: #dc2626;
+  box-shadow: none;
+  transform: none;
+}
+
+/* --- रिस्पॉन्सिव्ह डिझाईन --- */
+@media(max-width: 900px) {
+  .form-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+
+@media(max-width: 500px) {
+  .module-card, .investment-card, .form-card { padding: 20px; }
+  .form-grid { grid-template-columns: 1fr; }
+  th, td { padding: 12px; font-size: 12px; }
+  .total-card h1 { font-size: 28px; }
 }

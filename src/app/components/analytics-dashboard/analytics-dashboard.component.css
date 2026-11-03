@@ -1,180 +1,198 @@
+/* --- होस्ट कंटेनर डिझाईन --- */
+:host {
+  display: block;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
+}
 
-:host { display: block; }
+h1, h2, h3 {
+  color: #0f172a;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
 
 .dashboard {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 28px;
 }
 
+/* --- प्रीमियम स्टॅट्स ग्रीड (२ कॉलम्स) --- */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  gap: 20px;
 }
 
-.stat-card {
+/* --- अल्ट्रा-प्रीमियम स्टॅट कार्ड्स डिझाईन --- */
+.stat-card,
+.analytics-card,
+.overview-card,
+.card {
   position: relative;
-  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
-  border: 1px solid #e8edf5;
-  background: white;
+  padding: 26px;
   overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 10px 15px -3px rgba(15, 23, 42, 0.04);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-card:hover,
+.analytics-card:hover,
+.overview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 10px 10px -5px rgba(15, 23, 42, 0.03);
+}
+
+/* स्टॅट कार्ड्ससाठी मॉडर्न सॉफ्ट ग्रेडियंट्स */
+.stat-card:nth-child(1) {
+  background: linear-gradient(135deg, #f5f3ff 0%, #ffffff 60%); /* हलका जांभळा */
+}
+
+.stat-card:nth-child(2) {
+  background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 60%); /* हलका हिरवा */
+}
+
+.stat-card:nth-child(3) {
+  background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 60%); /* हलका निळा */
+}
+
+.stat-card:nth-child(4) {
+  background: linear-gradient(135deg, #fdf2f8 0%, #ffffff 60%); /* हलका गुलाबी */
 }
 
 .stat-card span {
-  font-size: 12px;
+  font-size: 13px;
   color: #64748b;
+  font-weight: 500;
 }
 
 .stat-card h2 {
-  font-size: 25px;
-  margin: 15px 0 0;
-  color: #172554;
+  font-size: 28px;
+  font-weight: 800;
+  margin: 14px 0 0;
+  color: #0f172a;
+  letter-spacing: -0.03em;
 }
 
+/* --- प्रीमियम स्टॅट आयकॉन्स --- */
 .stat-icon {
   position: absolute;
-  right: 20px;
-  top: 20px;
-  width: 40px;
-  height: 40px;
+  right: 24px;
+  top: 24px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
   border-radius: 12px;
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: 700;
+  transition: transform 0.2s ease;
 }
 
+.stat-card:hover .stat-icon {
+  transform: scale(1.05);
+}
+
+/* कलर व्हेरिएशन्स */
 .blue .stat-icon {
-  background: #eff6ff;
-  color: #2563eb;
+  background: #e0e7ff;
+  color: #4f46e5;
 }
 
 .red .stat-icon {
-  background: #fff1f2;
-  color: #e11d48;
+  background: #fef2f2;
+  color: #ef4444;
 }
 
 .green .stat-icon {
-  background: #ecfdf5;
-  color: #059669;
+  background: #d1fae5;
+  color: #10b981;
 }
 
 .purple .stat-icon {
-  background: #f5f3ff;
-  color: #7c3aed;
+  background: #f3e8ff;
+  color: #a855f7;
 }
 
-.overview-card {
-  background: white;
-  border: 1px solid #e8edf5;
-  border-radius: 18px;
-  padding: 26px;
-}
-
+/* --- ओव्हरव्ह्यू कार्ड आणि हेडर --- */
 .overview-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .overview-header h3 {
   margin: 0;
-  font-size: 17px;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .overview-header p {
-  color: #94a3b8;
-  font-size: 12px;
-  margin: 7px 0 0;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 4px 0 0;
 }
 
+/* --- मॉडर्न फिनटेक बटन्स --- */
 button {
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
-  color: white;
+  background: #4f46e5;
+  color: #ffffff;
   border: none;
-  border-radius: 9px;
-  padding: 11px 15px;
-  cursor: pointer;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 13px;
   font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
+button:hover {
+  background: #4338ca;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* --- समरी रोज (Summary Rows for Reports) --- */
 .summary-row {
   display: flex;
   justify-content: space-between;
-  padding: 17px 0;
-  border-bottom: 1px solid #edf0f5;
-  font-size: 13px;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+}
+
+.summary-row:last-child {
+  border-bottom: none;
 }
 
 .summary-row span {
   color: #64748b;
+  font-weight: 500;
 }
 
 .summary-row strong {
-  color: #172554;
-}
-
-@media(max-width: 700px) {
-  .stats-grid { grid-template-columns: 1fr; }
-  .overview-card { padding: 17px; }
-  .overview-header { gap: 10px; }
-}
-
-:host {
-  display: block;
-  color: #172554;
-}
-
-h1, h2, h3 {
-  color: #172554;
-  font-weight: 700;
-}
-
-.stat-card,
-.analytics-card,
-.card {
-  background: white;
-  border: 1px solid #e8eaf5;
-  border-radius: 18px;
-  padding: 24px;
-  box-shadow: 0 6px 22px rgba(79, 70, 229, 0.05);
-  transition: 0.3s ease;
-}
-
-.stat-card:hover,
-.analytics-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.10);
-}
-
-.stat-card:nth-child(1) {
-  background: linear-gradient(135deg, #eef2ff, #ffffff);
-}
-
-.stat-card:nth-child(2) {
-  background: linear-gradient(135deg, #ecfdf5, #ffffff);
-}
-
-.stat-card:nth-child(3) {
-  background: linear-gradient(135deg, #f5f3ff, #ffffff);
-}
-
-.stat-card:nth-child(4) {
-  background: linear-gradient(135deg, #eff6ff, #ffffff);
-}
-
-button {
-  padding: 12px 18px;
-  background: linear-gradient(135deg, #4f46e5, #6366f1);
-  color: white;
-  border: none;
-  border-radius: 10px;
+  color: #0f172a;
   font-weight: 600;
 }
 
-button:hover {
-  box-shadow: 0 6px 15px #4f46e533;
+/* --- रिस्पॉन्सिव्ह डिझाईन (Mobile Friendly) --- */
+@media(max-width: 700px) {
+  .stats-grid { grid-template-columns: 1fr; gap: 16px; }
+  .overview-card, .stat-card { padding: 20px; }
+  .overview-header { flex-direction: column; align-items: flex-start; gap: 14px; }
+  button { width: 100%; }
 }
