@@ -1,0 +1,86 @@
+
+<div class="module-card">
+
+  <div class="module-header">
+    <div>
+      <h2>Income & Expenses</h2>
+      <p>Record and manage your monthly spending.</p>
+    </div>
+    <span class="module-badge">MEMBER 1</span>
+  </div>
+
+  <div class="summary-box">
+    <div>
+      <span>Total Monthly Income</span>
+      <h2>₹{{ finance.income | number }}</h2>
+    </div>
+    <div>
+      <span>Total Expenses</span>
+      <h2>₹{{ (expenses$ | async)?.reduce(sum, 0) | number }}</h2>
+    </div>
+    <div>
+      <span>Budget Remaining</span>
+      <h2>₹{{ finance.budget - ((expenses$ | async)?.reduce(sum, 0) || 0) | number }}</h2>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <h3>Add New Expense</h3>
+
+    <div class="form-grid">
+      <input
+        type="text"
+        [(ngModel)]="title"
+        placeholder="Expense Name (e.g. Shopping, Food, Travel)">
+
+      <input
+        type="number"
+        [(ngModel)]="amount"
+        placeholder="Amount (e.g. 1500)">
+
+      <select [(ngModel)]="category">
+        <option value="Food">Food</option>
+        <option value="Personal">Personal</option>
+        <option value="Travel">Travel</option>
+        <option value="Bills">Bills</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <button (click)="addExpense()">+ Add Expense</button>
+    </div>
+  </div>
+
+  <div class="table-section">
+    <h3>Expense Records</h3>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Expense Name</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (expense of expenses$ | async; track expense.id) {
+            <tr>
+              <td>{{ expense.title }}</td>
+              <td><span class="category-tag">{{ expense.category }}</span></td>
+              <td class="amount">₹{{ expense.amount | number }}</td>
+              <td>
+                <button class="delete-btn" (click)="deleteExpense(expense.id)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

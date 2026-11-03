@@ -1,0 +1,203 @@
+
+:host { display: block; }
+
+.module-card {
+  background: white;
+  border: 1px solid #e8edf5;
+  border-radius: 18px;
+  padding: 28px;
+}
+
+.module-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.module-header h2 {
+  margin: 0;
+  font-size: 21px;
+  color: #172554;
+}
+
+.module-header p {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.module-badge {
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.form-section h3,
+.goals-list h3 {
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  gap: 12px;
+}
+
+input {
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #dbe3ef;
+  border-radius: 9px;
+  outline: none;
+  font-size: 12px;
+}
+
+input:focus { border-color: #2563eb; }
+
+button {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: white;
+  border: none;
+  border-radius: 9px;
+  padding: 11px 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.goals-list { margin-top: 30px; }
+
+.goal-card {
+  padding: 22px;
+  border: 1px solid #e8edf5;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  background: #fcfdff;
+}
+
+.goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goal-header h4 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.goal-header p {
+  color: #94a3b8;
+  font-size: 12px;
+  margin: 7px 0;
+}
+
+.goal-header strong {
+  color: #2563eb;
+  font-size: 20px;
+}
+
+.progress-track {
+  height: 9px;
+  border-radius: 20px;
+  background: #eaf0ff;
+  margin: 18px 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #2563eb, #818cf8);
+  border-radius: 20px;
+  transition: width 0.3s;
+}
+
+.goal-details {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.goal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.delete-btn {
+  background: #fff1f2;
+  color: #e11d48;
+}
+
+@media(max-width: 700px) {
+  .module-card { padding: 17px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .goal-details { flex-direction: column; }
+}
+
+:host {
+  display: block;
+  color: #172554;
+}
+
+h1, h2, h3 {
+  color: #172554;
+}
+
+.goal-card,
+.form-card,
+.card {
+  background: #ffffff;
+  border: 1px solid #e8eaf5;
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 22px;
+  box-shadow: 0 5px 20px rgba(79, 70, 229, 0.04);
+}
+
+input {
+  width: 100%;
+  padding: 13px 15px;
+  margin: 7px 0 15px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #fbfcff;
+}
+
+button {
+  padding: 12px 18px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e0e7ff;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #a78bfa);
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+button.delete-btn,
+button.danger {
+  background: #fee2e2;
+  color: #dc2626;
+}

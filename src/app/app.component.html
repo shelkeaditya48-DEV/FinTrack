@@ -1,0 +1,148 @@
+
+<div class="app-layout">
+
+  <aside class="sidebar">
+
+    <div class="brand">
+      <div class="brand-logo">F</div>
+      <div>
+        <h2>FinTech</h2>
+        <span>Finance Platform</span>
+      </div>
+    </div>
+
+    <p class="menu-heading">WORKSPACE</p>
+
+    <button class="menu-item"
+      [class.active]="activePage === 'dashboard'"
+      (click)="setPage('dashboard')">
+      <span>▦</span> Dashboard
+    </button>
+
+    <button class="menu-item"
+      [class.active]="activePage === 'expenses'"
+      (click)="setPage('expenses')">
+      <span>↗</span> Income & Expenses
+    </button>
+
+    <button class="menu-item"
+      [class.active]="activePage === 'investments'"
+      (click)="setPage('investments')">
+      <span>◈</span> Investment Portfolio
+    </button>
+
+    <button class="menu-item"
+      [class.active]="activePage === 'goals'"
+      (click)="setPage('goals')">
+      <span>◎</span> Financial Goals
+    </button>
+
+    <button class="menu-item"
+      [class.active]="activePage === 'analytics'"
+      (click)="setPage('analytics')">
+      <span>▥</span> Analytics
+    </button>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-card">
+        <div class="sidebar-card-icon">✦</div>
+        <h4>Smart Finance</h4>
+        <p>Build better financial habits every day.</p>
+      </div>
+
+      <div class="user-profile">
+        <div class="user-avatar">A</div>
+        <div>
+          <strong>Aditya Shelke</strong>
+          <span>Personal Account</span>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <div class="main-area">
+
+    <header class="top-navbar">
+      <div class="breadcrumb">
+        Workspace / <strong>
+          @if (activePage === 'dashboard') { Dashboard }
+          @else if (activePage === 'expenses') { Income & Expenses }
+          @else if (activePage === 'investments') { Investment Portfolio }
+          @else if (activePage === 'goals') { Financial Goals }
+          @else { Analytics }
+        </strong>
+      </div>
+
+      <div class="navbar-right">
+        <div class="live-status">
+          <span></span> LIVE OVERVIEW
+        </div>
+        <div class="navbar-avatar">A</div>
+      </div>
+    </header>
+
+    <main class="content">
+
+      @if (activePage === 'dashboard') {
+        <div class="page-heading">
+          <div>
+            <span class="eyebrow">PERSONAL FINANCE</span>
+            <h1>Welcome back, Aditya 👋</h1>
+            <p>Here's your financial overview.</p>
+          </div>
+        </div>
+        <app-analytics-dashboard></app-analytics-dashboard>
+      }
+
+      @if (activePage === 'expenses') {
+        <div class="page-heading">
+          <div>
+            <span class="eyebrow">MEMBER 1</span>
+            <h1>Income & Expenses</h1>
+            <p>Track your income, expenses and monthly budget.</p>
+          </div>
+        </div>
+        <app-income-expense></app-income-expense>
+      }
+
+      @if (activePage === 'investments') {
+        <div class="page-heading">
+          <div>
+            <span class="eyebrow">MEMBER 2</span>
+            <h1>Investment Portfolio</h1>
+            <p>Manage your investments in one place.</p>
+          </div>
+        </div>
+        <app-investment-portfolio></app-investment-portfolio>
+      }
+
+      @if (activePage === 'goals') {
+        <div class="page-heading">
+          <div>
+            <span class="eyebrow">MEMBER 3</span>
+            <h1>Financial Goals</h1>
+            <p>Track savings and achieve your financial targets.</p>
+          </div>
+        </div>
+        <app-financial-goals></app-financial-goals>
+      }
+
+      @if (activePage === 'analytics') {
+        <div class="page-heading">
+          <div>
+            <span class="eyebrow">MEMBER 4</span>
+            <h1>Analytics Dashboard</h1>
+            <p>Understand your financial performance.</p>
+          </div>
+        </div>
+        <app-analytics-dashboard></app-analytics-dashboard>
+      }
+
+      <footer class="footer">
+        © 2026 FinTech | Personal Finance Platform
+      </footer>
+
+    </main>
+  </div>
+</div>

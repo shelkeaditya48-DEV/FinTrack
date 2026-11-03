@@ -1,0 +1,65 @@
+
+<div class="module-card">
+
+  <div class="module-header">
+    <div>
+      <h2>Financial Goals</h2>
+      <p>Plan your savings and achieve your financial targets.</p>
+    </div>
+    <span class="module-badge">MEMBER 3</span>
+  </div>
+
+  <div class="form-section">
+    <h3>Create Financial Goal</h3>
+
+    <div class="form-grid">
+      <input
+        type="text"
+        [(ngModel)]="name"
+        placeholder="Goal Name (e.g. Buy Laptop, Education, Vacation)">
+
+      <input
+        type="number"
+        [(ngModel)]="target"
+        placeholder="Target Amount (e.g. 60000)">
+
+      <button (click)="addGoal()">+ Add Goal</button>
+    </div>
+  </div>
+
+  <div class="goals-list">
+    <h3>Your Savings Goals</h3>
+
+    @for (goal of goals$ | async; track goal.id) {
+      <div class="goal-card">
+
+        <div class="goal-header">
+          <div>
+            <h4>{{ goal.name }}</h4>
+            <p>Target: ₹{{ goal.target | number }}</p>
+          </div>
+          <strong>{{ calculateProgress(goal.saved, goal.target) | number:'1.0-0' }}%</strong>
+        </div>
+
+        <div class="progress-track">
+          <div
+            class="progress-fill"
+            [style.width.%]="calculateProgress(goal.saved, goal.target)">
+          </div>
+        </div>
+
+        <div class="goal-details">
+          <span>Saved: ₹{{ goal.saved | number }}</span>
+          <span>Remaining: ₹{{ remaining(goal.target, goal.saved) | number }}</span>
+        </div>
+
+        <div class="goal-actions">
+          <button (click)="addSaving(goal.id)">+ Add Savings</button>
+          <button class="delete-btn" (click)="deleteGoal(goal.id)">Delete</button>
+        </div>
+
+      </div>
+    }
+  </div>
+
+</div>

@@ -1,0 +1,62 @@
+
+<div class="dashboard">
+
+  @if (vm$ | async; as vm) {
+
+    <div class="stats-grid">
+
+      <div class="stat-card blue">
+        <span>Monthly Income</span>
+        <h2>₹{{ finance.income | number }}</h2>
+        <div class="stat-icon">₹</div>
+      </div>
+
+      <div class="stat-card red">
+        <span>Total Expenses</span>
+        <h2>₹{{ vm.totalExpense | number }}</h2>
+        <div class="stat-icon">↗</div>
+      </div>
+
+      <div class="stat-card green">
+        <span>Available Balance</span>
+        <h2>₹{{ vm.balance | number }}</h2>
+        <div class="stat-icon">✓</div>
+      </div>
+
+      <div class="stat-card purple">
+        <span>Total Investments</span>
+        <h2>₹{{ vm.totalInvestment | number }}</h2>
+        <div class="stat-icon">◈</div>
+      </div>
+
+    </div>
+
+    <div class="overview-card">
+      <div class="overview-header">
+        <div>
+          <h3>Financial Summary</h3>
+          <p>Your current financial status</p>
+        </div>
+        <button (click)="exportExpenses()">↓ Export CSV</button>
+      </div>
+
+      <div class="summary-row">
+        <span>Monthly Budget</span>
+        <strong>₹{{ finance.budget | number }}</strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Budget Remaining</span>
+        <strong>₹{{ vm.budgetLeft | number }}</strong>
+      </div>
+
+      <div class="summary-row">
+        <span>Total Goal Savings</span>
+        <strong>₹{{ vm.totalSaved | number }}</strong>
+      </div>
+
+    </div>
+
+  }
+
+</div>

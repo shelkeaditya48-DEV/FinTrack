@@ -1,0 +1,76 @@
+
+<div class="module-card">
+
+  <div class="module-header">
+    <div>
+      <h2>Investment Portfolio</h2>
+      <p>Manage your investments and asset allocation.</p>
+    </div>
+    <span class="module-badge">MEMBER 2</span>
+  </div>
+
+  <div class="total-card">
+    <span>Total Investment</span>
+    <h1>₹{{ (investments$ | async)?.reduce(sum, 0) | number }}</h1>
+    <p>Your total recorded investments</p>
+  </div>
+
+  <div class="form-section">
+    <h3>Add New Investment</h3>
+
+    <div class="form-grid">
+      <input
+        type="text"
+        [(ngModel)]="name"
+        placeholder="Investment Name (e.g. HDFC Fund, Gold, Stocks)">
+
+      <input
+        type="number"
+        [(ngModel)]="amount"
+        placeholder="Investment Amount (e.g. 10000)">
+
+      <select [(ngModel)]="type">
+        <option value="Mutual Fund">Mutual Fund</option>
+        <option value="Stocks">Stocks</option>
+        <option value="Gold">Gold</option>
+        <option value="Fixed Deposit">Fixed Deposit</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <button (click)="addInvestment()">+ Add Investment</button>
+    </div>
+  </div>
+
+  <div class="table-section">
+    <h3>Investment Records</h3>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Investment Name</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (investment of investments$ | async; track investment.id) {
+            <tr>
+              <td>{{ investment.name }}</td>
+              <td><span class="type-tag">{{ investment.type }}</span></td>
+              <td class="amount">₹{{ investment.amount | number }}</td>
+              <td>
+                <button class="delete-btn" (click)="deleteInvestment(investment.id)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
